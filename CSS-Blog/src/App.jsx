@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import HomePage from './pages/HomePage'
-import ProfilePage from "./pages/ProfilePage"
+import PostPage from './pages/PostPage'
 import NewPostPage from "./pages/NewPostPage"
 import Header from "./components/Header"
 
@@ -16,11 +16,13 @@ function App() {
 
       <Header />
 
-      <Routes>
-        <Route path="/" element={<HomePage posts={posts} />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/post/new" element={<NewPostPage />} />
-      </Routes>
+      <section className="section">
+        <Routes>
+          <Route path="/" element={<HomePage posts={posts} />} />
+          <Route path="/post/:id" element={<PostPage posts={posts} />} />
+          <Route path="/post/new" element={<NewPostPage />} />
+        </Routes>
+      </section>
 
     </BrowserRouter>
   )
